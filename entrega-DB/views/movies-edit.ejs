@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crear pelicula</title>
+</head>
+<body>
+    <form action="/movies/edit/<%=movie.id%>" method="POST">
+        <div>
+            <label for="">Título</label>
+            <input type="text" name="title" value="<%=movie.title%>">
+        </div>
+        <div>
+            <label for="">Premios</label>
+            <input type="number" name="awards" value="<%=movie.awards%>">
+        </div>
+        <div>
+            <label for=""> Duración </label>
+            <input type="text" name="length" value="<%=movie.length%>">
+        </div>
+        <div>
+            <label for=""> Rating </label>
+            <input type="text" name="rating" value="<%=movie.rating%>">
+        </div>
+        <div>
+            <label for=""> Fecha de estreno </label>
+            <input type="date" name="date">
+        </div>
+        <div>
+            <label for=""> Genero </label>
+            <select name="genre" id="">
+                <% for(let i = 0; i < genre.length; i++){%>
+                <% if(genre[i].id == movie.genre_id){ %>
+                <option value="<%=genre[i].id %>" selected>
+                <%= genre[i].name%>
+                </option>
+                <%} else {%>
+                    <option value="<%=genre[i].id%>">
+                <%=genre[i].name%>
+                    </option>
+                    <%}%>
+                <%}%>
+
+            </select>            
+            <button type="submit">Crear!</button>
+        </div>
+
+
+
+    </form>
+    
+</body>
+</html>
